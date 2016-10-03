@@ -77,7 +77,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         String localString1,theKeyString;
         double valueAccum,valueDisplay,valueResult;
-        boolean calcError = false;
 
         Log.i("info","MainActivity.onClick.start");
 
@@ -140,13 +139,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
                                 valueResult = valueDisplay / valueAccum;
                             }
                             catch(ArithmeticException e){
-                                calcError = true;
+                                Toast.makeText(getApplicationContext(),"Error", Toast.LENGTH_LONG).show();
                             }
                             break;
                     } //End switch (theOperation)
                 textViewObjectOperator.setText("");
                 textViewObjectTextDisplay.setText("");
-                textViewObjectTextAccum.setText(""+valueResult);
+                textViewObjectTextAccum.setText(""+String.format("%f",valueResult));
                 }
                 break;
 
